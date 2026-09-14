@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alyanda Astri — Data Analyst</title>
+<meta name="description" content="Portfolio of Alyanda Astri, Data Analyst — projects, skills, and experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EDEFEA;
+    --paper-raised:#F4F5F1;
+    --ink:#1C2430;
+    --ink-soft:#4A5568;
+    --amber:#C98A3E;
+    --teal:#3F6E64;
+    --line:#D8DAD3;
+    --max-w:720px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Roboto Slab', serif;
+    font-weight:700;
+    line-height:1.15;
+    margin:0;
+  }
+
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8em;
+    letter-spacing:0.01em;
+  }
+
+  a{color:var(--teal);}
+
+  /* ---------- layout shell ---------- */
+  .wrap{
+    max-width:var(--max-w);
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  header.site{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:28px 28px;
+    max-width:var(--max-w);
+    margin:0 auto;
+  }
+  header.site .brand{
+    font-family:'Roboto Slab', serif;
+    font-weight:700;
+    font-size:1.05rem;
+  }
+  header.site nav{
+    display:flex;
+    gap:24px;
+  }
+  header.site nav a{
+    color:var(--ink-soft);
+    text-decoration:none;
+    font-size:0.92rem;
+  }
+  header.site nav a:hover{ color:var(--ink); }
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:56px 0 64px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero .eyebrow{
+    color:var(--teal);
+    margin-bottom:14px;
+    display:block;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem, 5vw, 3rem);
+    max-width:11ch;
+  }
+  .hero p.lede{
+    margin-top:18px;
+    max-width:56ch;
+    color:var(--ink-soft);
+    font-size:1.08rem;
+  }
+  .hero .cta-row{
+    margin-top:28px;
+    display:flex;
+    gap:16px;
+    align-items:center;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    text-decoration:none;
+    padding:11px 20px;
+    border-radius:2px;
+    font-size:0.94rem;
+    font-weight:500;
+  }
+  .btn.ghost{
+    background:transparent;
+    color:var(--ink);
+    border:1px solid var(--line);
+  }
+
+  .chart-panel{
+    margin-top:44px;
+    border:1px solid var(--line);
+    background:var(--paper-raised);
+    padding:22px 22px 16px;
+  }
+  .chart-panel .chart-label{
+    display:flex;
+    justify-content:space-between;
+    color:var(--ink-soft);
+    margin-bottom:6px;
+  }
+  #trend-svg path.line{
+    fill:none;
+    stroke:var(--amber);
+    stroke-width:2.5;
+    stroke-linecap:round;
+    stroke-dasharray:600;
+    stroke-dashoffset:600;
+    animation:draw 1.6s ease-out forwards;
+  }
+  #trend-svg path.area{
+    fill:url(#areaGrad);
+    opacity:0;
+    animation:fadein 1s ease-out 1s forwards;
+  }
+  #trend-svg circle{
+    opacity:0;
+    animation:fadein 0.4s ease-out forwards;
+  }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  @keyframes fadein{ to{ opacity:1; } }
+  @media (prefers-reduced-motion: reduce){
+    #trend-svg path.line{ animation:none; stroke-dashoffset:0; }
+    #trend-svg path.area, #trend-svg circle{ animation:none; opacity:1; }
+  }
+
+  /* ---------- sections ---------- */
+  section{
+    padding:52px 0;
+    border-bottom:1px solid var(--line);
+  }
+  section:last-of-type{ border-bottom:none; }
+
+  .section-head{
+    display:flex;
+    gap:14px;
+    align-items:baseline;
+    margin-bottom:28px;
+    border-left:3px solid var(--amber);
+    padding-left:14px;
+  }
+  .section-head span.label{
+    color:var(--ink-soft);
+  }
+  .section-head h2{
+    font-size:1.5rem;
+  }
+
+  /* about */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+  .about-text p{ color:var(--ink-soft); max-width:64ch; }
+  .about-text p + p{ margin-top:14px; }
+
+  .stat-row{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+    margin-top:24px;
+  }
+  .stat{
+    border:1px solid var(--line);
+    padding:16px 14px;
+    background:var(--paper-raised);
+  }
+  .stat .num{
+    font-family:'Roboto Slab', serif;
+    font-size:1.6rem;
+    color:var(--ink);
+  }
+  .stat .desc{
+    color:var(--ink-soft);
+    font-size:0.85rem;
+    margin-top:4px;
+  }
+
+  /* skills */
+  .skill-groups{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:22px;
+  }
+  .skill-group h3{
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    font-size:0.95rem;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+  }
+  .pill-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .pill{
+    border:1px solid var(--line);
+    padding:6px 12px;
+    font-size:0.85rem;
+    background:var(--paper-raised);
+  }
+
+  /* projects */
+  .project{
+    border:1px solid var(--line);
+    background:var(--paper-raised);
+    padding:24px;
+    margin-bottom:18px;
+  }
+  .project:last-child{ margin-bottom:0; }
+  .project .p-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .project h3{
+    font-size:1.15rem;
+  }
+  .project .p-meta{
+    color:var(--teal);
+  }
+  .project p.p-desc{
+    color:var(--ink-soft);
+    margin-top:10px;
+    max-width:62ch;
+  }
+  .project .p-metrics{
+    display:flex;
+    gap:18px;
+    margin-top:14px;
+    flex-wrap:wrap;
+  }
+  .project .p-metrics .m{
+    color:var(--ink);
+  }
+  .project .p-metrics .m .n{
+    color:var(--amber);
+    font-weight:500;
+  }
+  .project .p-tools{
+    margin-top:14px;
+    color:var(--ink-soft);
+    font-size:0.85rem;
+  }
+  .project a.p-link{
+    display:inline-block;
+    margin-top:14px;
+    font-size:0.9rem;
+    text-decoration:none;
+    border-bottom:1px solid var(--teal);
+  }
+
+  /* experience */
+  .exp-item{
+    display:grid;
+    grid-template-columns:110px 1fr;
+    gap:16px;
+    padding:18px 0;
+    border-top:1px solid var(--line);
+  }
+  .exp-item:first-child{ border-top:none; }
+  .exp-item .exp-date{
+    color:var(--ink-soft);
+  }
+  .exp-item h3{
+    font-size:1.02rem;
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+  }
+  .exp-item .exp-org{
+    color:var(--teal);
+    font-size:0.92rem;
+    margin-top:2px;
+  }
+  .exp-item p{
+    color:var(--ink-soft);
+    margin-top:8px;
+    font-size:0.95rem;
+    max-width:58ch;
+  }
+
+  /* contact */
+  .contact-block{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    align-items:flex-start;
+  }
+  .contact-block p{ color:var(--ink-soft); max-width:52ch; }
+  .contact-links{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:6px;
+  }
+  .contact-links a{
+    text-decoration:none;
+    border-bottom:1px solid var(--line);
+    padding-bottom:2px;
+  }
+
+  footer{
+    padding:32px 0 48px;
+    color:var(--ink-soft);
+    font-size:0.85rem;
+  }
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--amber);
+    outline-offset:2px;
+  }
+
+  @media (min-width:640px){
+    .about-grid{ grid-template-columns:1.3fr 1fr; }
+  }
+
+  @media (max-width:560px){
+    header.site{ flex-direction:column; gap:14px; align-items:flex-start; }
+    .stat-row{ grid-template-columns:1fr; }
+    .exp-item{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="brand">Alyanda Astri</div>
+  <nav>
+    <a href="#work">Work</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero" style="border-bottom:none; padding-top:12px;">
+    <span class="mono eyebrow">Data Analyst — Jakarta, ID</span>
+    <h1>Tidied and Tidying messy data into </h1>
+    <p class="lede">
+      Fresh graduate with passion in data ahndling, starting from analyzing raw data
+      to 
+      Three years finding the signal in retail and product data — from churn models to
+      pricing experiments. I care most about the part after the analysis: making sure
+      the right person acts on it.
+    </p>
+    <div class="cta-row">
+      <a class="btn" href="#work">See the work</a>
+      <a class="btn ghost" href="mailto:astrialyanda@gmail.com">astrialyanda@gmail.com</a>
+    </div>
+
+    <div class="chart-panel">
+      <div class="chart-label mono">
+        <span>MONTHLY ACTIVE USERS — LAST 12 MONTHS</span>
+        <span>+38% YoY</span>
+      </div>
+      <svg id="trend-svg" viewBox="0 0 640 160" width="100%" height="140" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#C98A3E" stop-opacity="0.22"/>
+            <stop offset="100%" stop-color="#C98A3E" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <path class="area" d="M0,120 L53,112 L107,118 L160,98 L213,102 L267,86 L320,90 L373,68 L427,72 L480,50 L533,54 L587,30 L640,26 L640,160 L0,160 Z"/>
+        <path class="line" d="M0,120 L53,112 L107,118 L160,98 L213,102 L267,86 L320,90 L373,68 L427,72 L480,50 L533,54 L587,30 L640,26"/>
+        <circle cx="640" cy="26" r="4" fill="#C98A3E" style="animation-delay:1.5s;"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-head">
+      <span class="mono label">01</span>
+      <h2>About</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm a data analyst who started in customer support — which turned out to be the
+          best training for this job. I'd spent two years listening to why people churned
+          before I ever wrote a line of SQL, so my analysis usually starts with a real
+          question, not a dataset looking for a home.
+        </p>
+        <p>
+          Right now I work across pricing, retention, and lifecycle marketing, mostly in
+          SQL and Python, with dashboards for the teams who need answers daily and
+          notebooks for the ones who need to dig in themselves.
+        </p>
+      </div>
+      <div class="stat-row" style="grid-column:1/-1;">
+        <div class="stat">
+          <div class="num">40+</div>
+          <div class="desc">analyses shipped to stakeholders</div>
+        </div>
+        <div class="stat">
+          <div class="num">3</div>
+          <div class="desc">years in analytics roles</div>
+        </div>
+        <div class="stat">
+          <div class="num">$1.2M</div>
+          <div class="desc">revenue impact attributed to my recs</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-head">
+      <span class="mono label">02</span>
+      <h2>Skills</h2>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h3>Languages & querying</h3>
+        <div class="pill-row">
+          <span class="pill">SQL</span>
+          <span class="pill">Python (pandas, numpy)</span>
+          <span class="pill">R</span>
+          <span class="pill">DAX</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Visualization & BI</h3>
+        <div class="pill-row">
+          <span class="pill">Tableau</span>
+          <span class="pill">Power BI</span>
+          <span class="pill">Looker</span>
+          <span class="pill">Matplotlib / Seaborn</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Statistics & modeling</h3>
+        <div class="pill-row">
+          <span class="pill">A/B testing</span>
+          <span class="pill">Regression</span>
+          <span class="pill">Cohort & churn analysis</span>
+          <span class="pill">Forecasting</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Tools</h3>
+        <div class="pill-row">
+          <span class="pill">BigQuery</span>
+          <span class="pill">Snowflake</span>
+          <span class="pill">dbt</span>
+          <span class="pill">Git</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK / PROJECTS -->
+  <section id="work">
+    <div class="section-head">
+      <span class="mono label">03</span>
+      <h2>Selected work</h2>
+    </div>
+
+    <div class="project">
+      <div class="p-head">
+        <h3>Predicting churn before it happens</h3>
+        <span class="p-meta mono">Subscription product</span>
+      </div>
+      <p class="p-desc">
+        Built a churn model on 18 months of usage data to flag at-risk subscribers 30 days
+        out, then worked with lifecycle marketing to target them with the right offer
+        instead of a blanket discount.
+      </p>
+      <div class="p-metrics">
+        <span class="m"><span class="n">0.84</span> AUC</span>
+        <span class="m"><span class="n">-17%</span> churn in flagged segment</span>
+      </div>
+      <div class="p-tools mono">Python · scikit-learn · SQL · Looker</div>
+      <a class="p-link" href="#">Read the write-up →</a>
+    </div>
+
+    <div class="project">
+      <div class="p-head">
+        <h3>Pricing experiment for the mid-tier plan</h3>
+        <span class="p-meta mono">Growth</span>
+      </div>
+      <p class="p-desc">
+        Designed and analyzed an A/B test across three price points, controlling for
+        seasonality and regional differences, to find where conversion held without
+        hurting margin.
+      </p>
+      <div class="p-metrics">
+        <span class="m"><span class="n">+9%</span> conversion</span>
+        <span class="m"><span class="n">12wk</span> test window</span>
+      </div>
+      <div class="p-tools mono">SQL · R · Bayesian A/B testing</div>
+      <a class="p-link" href="#">Read the write-up →</a>
+    </div>
+
+    <div class="project">
+      <div class="p-head">
+        <h3>A dashboard the sales team actually opens</h3>
+        <span class="p-meta mono">Internal tooling</span>
+      </div>
+      <p class="p-desc">
+        Replaced a weekly static report with a live pipeline dashboard. Spent more time
+        interviewing sales reps about what they'd ignore than building charts.
+      </p>
+      <div class="p-metrics">
+        <span class="m"><span class="n">85%</span> weekly active use</span>
+        <span class="m"><span class="n">-4hrs</span> manual reporting / week</span>
+      </div>
+      <div class="p-tools mono">Tableau · dbt · Snowflake</div>
+      <a class="p-link" href="#">Read the write-up →</a>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-head">
+      <span class="mono label">04</span>
+      <h2>Experience</h2>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date mono">2024—Now</div>
+      <div>
+        <h3>Data Analyst</h3>
+        <div class="exp-org">Northwind Retail</div>
+        <p>Own pricing and retention analytics for a subscription product with 200k+ active users.</p>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date mono">2022—2024</div>
+      <div>
+        <h3>Junior Data Analyst</h3>
+        <div class="exp-org">Harbor & Co.</div>
+        <p>Built the team's first self-serve reporting layer and trained non-technical staff to use it.</p>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date mono">2021—2022</div>
+      <div>
+        <h3>Customer Support Lead</h3>
+        <div class="exp-org">Harbor & Co.</div>
+        <p>Handled escalations and noticed the churn patterns that later became my first analysis project.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-head">
+      <span class="mono label">05</span>
+      <h2>Get in touch</h2>
+    </div>
+    <div class="contact-block">
+      <p>
+        Open to data analyst and analytics engineering roles, and always happy to talk
+        about a hard measurement problem over coffee (virtual or otherwise).
+      </p>
+      <div class="contact-links">
+        <a href="mailto:alex.rivera@example.com">Email</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+        <a href="#">Resume (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Alyanda Astri. Built with plain HTML, CSS, and a little SVG.
+  </footer>
+
+</div>
+
+</body>
+</html>
