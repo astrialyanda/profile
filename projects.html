@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Predicting churn before it happens — Alex Rivera</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EDEFEA;
+    --paper-raised:#F4F5F1;
+    --ink:#1C2430;
+    --ink-soft:#4A5568;
+    --amber:#C98A3E;
+    --teal:#3F6E64;
+    --line:#D8DAD3;
+    --max-w:680px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-size:17px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2{ font-family:'Roboto Slab', serif; font-weight:700; line-height:1.2; margin:0; }
+  .mono{ font-family:'IBM Plex Mono', monospace; font-size:0.8em; }
+  a{ color:var(--teal); }
+
+  header.site{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:28px; max-width:var(--max-w); margin:0 auto;
+  }
+  header.site .brand{ font-family:'Roboto Slab', serif; font-weight:700; font-size:1.05rem; text-decoration:none; color:var(--ink); }
+
+  .wrap{ max-width:var(--max-w); margin:0 auto; padding:0 28px 60px; }
+
+  .back-link{
+    display:inline-block; margin-bottom:24px; font-size:0.9rem;
+    text-decoration:none; color:var(--ink-soft);
+  }
+  .back-link:hover{ color:var(--ink); }
+
+  .p-meta-row{
+    display:flex; gap:16px; align-items:baseline; flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .p-meta-row .mono{ color:var(--teal); }
+
+  h1{ font-size:clamp(1.8rem, 4vw, 2.4rem); max-width:18ch; margin-bottom:20px; }
+
+  .stat-row{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:16px;
+    margin:28px 0;
+  }
+  .stat{
+    border:1px solid var(--line); background:var(--paper-raised);
+    padding:16px 14px;
+  }
+  .stat .num{ font-family:'Roboto Slab', serif; font-size:1.6rem; color:var(--amber); }
+  .stat .desc{ color:var(--ink-soft); font-size:0.85rem; margin-top:4px; }
+
+  section{ margin:36px 0; }
+  section h2{ font-size:1.2rem; margin-bottom:12px; border-left:3px solid var(--amber); padding-left:12px; }
+  section p{ color:var(--ink-soft); max-width:62ch; }
+  section p + p{ margin-top:12px; }
+  section ul{ color:var(--ink-soft); padding-left:20px; }
+  section li{ margin-bottom:8px; }
+
+  .tools-row{
+    margin-top:36px; padding-top:20px; border-top:1px solid var(--line);
+    color:var(--ink-soft); font-size:0.9rem;
+  }
+
+  footer{ padding:32px 0 48px; color:var(--ink-soft); font-size:0.85rem; text-align:center; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a class="brand" href="index.html">Alex Rivera</a>
+</header>
+
+<div class="wrap">
+  <a class="back-link" href="index.html#work">← Back to all projects</a>
+
+  <div class="p-meta-row">
+    <span class="mono">Subscription product</span>
+    <span class="mono" style="color:var(--ink-soft);">2025</span>
+  </div>
+
+  <h1>Predicting churn before it happens</h1>
+
+  <div class="stat-row">
+    <div class="stat">
+      <div class="num">0.84</div>
+      <div class="desc">model AUC</div>
+    </div>
+    <div class="stat">
+      <div class="num">-17%</div>
+      <div class="desc">churn in flagged segment</div>
+    </div>
+  </div>
+
+  <section>
+    <h2>The problem</h2>
+    <p>
+      Subscribers were canceling with no warning signs the support team could act on.
+      By the time someone reached out to cancel, it was already too late to change
+      their mind with a single retention offer.
+    </p>
+  </section>
+
+  <section>
+    <h2>What I did</h2>
+    <p>
+      Pulled 18 months of product usage, support tickets, and billing events into a
+      single feature set. Trained a gradient-boosted model to score every active
+      subscriber weekly on churn risk 30 days out, then worked with lifecycle
+      marketing to route high-risk users into a targeted save campaign instead of a
+      blanket discount that eroded margin.
+    </p>
+    <ul>
+      <li>Engineered 40+ behavioral features from raw event logs</li>
+      <li>Validated with time-based cross-validation to avoid leakage</li>
+      <li>Built a Looker dashboard so CS could see risk scores per account</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Result</h2>
+    <p>
+      The flagged segment saw a 17% reduction in churn over the following quarter
+      compared to a held-out control group, while overall discount spend dropped
+      since offers were only sent where they were likely to matter.
+    </p>
+  </section>
+
+  <div class="tools-row mono">
+    Tools: Python · scikit-learn · SQL · Looker
+  </div>
+</div>
+
+<footer>© 2026 Alex Rivera</footer>
+
+</body>
+</html>
