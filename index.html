@@ -99,13 +99,7 @@
     color:var(--ink-soft);
     font-size:1.08rem;
   }
-  /* .hero .cta-row{
-    margin-top:28px;
-    display:flex;
-    gap:16px;
-    align-items:center;
-    flex-wrap:wrap;
-  } */
+
   .btn{
     display:inline-block;
     background:var(--ink);
@@ -121,43 +115,6 @@
     color:var(--ink);
     border:1px solid var(--line);
   }
-
-  /* .chart-panel{
-    margin-top:44px;
-    border:1px solid var(--line);
-    background:var(--paper-raised);
-    padding:22px 22px 16px;
-  }
-  .chart-panel .chart-label{
-    display:flex;
-    justify-content:space-between;
-    color:var(--ink-soft);
-    margin-bottom:6px;
-  }
-  #trend-svg path.line{
-    fill:none;
-    stroke:var(--amber);
-    stroke-width:2.5;
-    stroke-linecap:round;
-    stroke-dasharray:600;
-    stroke-dashoffset:600;
-    animation:draw 1.6s ease-out forwards;
-  }
-  #trend-svg path.area{
-    fill:url(#areaGrad);
-    opacity:0;
-    animation:fadein 1s ease-out 1s forwards;
-  }
-  #trend-svg circle{
-    opacity:0;
-    animation:fadein 0.4s ease-out forwards;
-  }
-  @keyframes draw{ to{ stroke-dashoffset:0; } }
-  @keyframes fadein{ to{ opacity:1; } }
-  @media (prefers-reduced-motion: reduce){
-    #trend-svg path.line{ animation:none; stroke-dashoffset:0; }
-    #trend-svg path.area, #trend-svg circle{ animation:none; opacity:1; }
-  } */
 
   /* ---------- sections ---------- */
   section{
@@ -237,57 +194,7 @@
     background:var(--paper-raised);
   }
 
-  /* projects
-  .project{
-    border:1px solid var(--line);
-    background:var(--paper-raised);
-    padding:24px;
-    margin-bottom:18px;
-  }
-  .project:last-child{ margin-bottom:0; }
-  .project .p-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:baseline;
-    gap:12px;
-    flex-wrap:wrap;
-  }
-  .project h3{
-    font-size:1.15rem;
-  }
-  .project .p-meta{
-    color:var(--teal);
-  }
-  .project p.p-desc{
-    color:var(--ink-soft);
-    margin-top:10px;
-    max-width:62ch;
-  }
-  .project .p-metrics{
-    display:flex;
-    gap:18px;
-    margin-top:14px;
-    flex-wrap:wrap;
-  }
-  .project .p-metrics .m{
-    color:var(--ink);
-  }
-  .project .p-metrics .m .n{
-    color:var(--amber);
-    font-weight:500;
-  }
-  .project .p-tools{
-    margin-top:14px;
-    color:var(--ink-soft);
-    font-size:0.85rem;
-  }
-  .project a.p-link{
-    display:inline-block;
-    margin-top:14px;
-    font-size:0.9rem;
-    text-decoration:none;
-    border-bottom:1px solid var(--teal);
-  } */
+  /* projects */
 
   a.project{
     display:block;
@@ -380,26 +287,6 @@
     max-width:58ch;
   }
 
-  /* contact
-  .contact-block{
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-    align-items:flex-start;
-  }
-  .contact-block p{ color:var(--ink-soft); max-width:52ch; }
-  .contact-links{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-    margin-top:6px;
-  }
-  .contact-links a{
-    text-decoration:none;
-    border-bottom:1px solid var(--line);
-    padding-bottom:2px;
-  } */
-
 /* contact */
   .contact-block{
     display:flex;
@@ -461,10 +348,6 @@
     outline-offset:2px;
   }
 
-  /* @media (min-width:640px){
-    .about-grid{ grid-template-columns:1.3fr 1fr; }
-  } */
-
   @media (max-width:560px){
     header.site{ flex-direction:column; gap:14px; align-items:flex-start; }
     .stat-row{ grid-template-columns:1fr; }
@@ -493,30 +376,6 @@
       A Computer Science Fresh Graduate form Universitas Indonesia with Passion
       on pursuing a Data Analytics Career.
     </p>
-    <!-- <div class="cta-row">
-      <a class="btn" href="#education">See the work</a>
-      <a class="btn ghost" href="mailto:astrialyanda@gmail.com">astrialyanda@gmail.com</a>
-      <a href="https://wa.me/6281234567890">WhatsApp</a>
-      <a href="projects.html" class="page-btn">View all projects</a>
-    </div> -->
-
-    <!-- <div class="chart-panel">
-      <div class="chart-label mono">
-        <span>MONTHLY ACTIVE USERS — LAST 12 MONTHS</span>
-        <span>+38% YoY</span>
-      </div>
-      <svg id="trend-svg" viewBox="0 0 640 160" width="100%" height="140" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#C98A3E" stop-opacity="0.22"/>
-            <stop offset="100%" stop-color="#C98A3E" stop-opacity="0"/>
-          </linearGradient>
-        </defs>
-        <path class="area" d="M0,120 L53,112 L107,118 L160,98 L213,102 L267,86 L320,90 L373,68 L427,72 L480,50 L533,54 L587,30 L640,26 L640,160 L0,160 Z"/>
-        <path class="line" d="M0,120 L53,112 L107,118 L160,98 L213,102 L267,86 L320,90 L373,68 L427,72 L480,50 L533,54 L587,30 L640,26"/>
-        <circle cx="640" cy="26" r="4" fill="#C98A3E" style="animation-delay:1.5s;"/>
-      </svg>
-    </div> -->
   </section>
 
   <!-- ABOUT -->
@@ -533,11 +392,6 @@
           Continuously learning data analytical skills such as Excel, Python and Power BI. 
           Eager to further apply analytical and problem-solving skills in a data analytics role.
         </p>
-        <!-- <p>
-          Right now I work across pricing, retention, and lifecycle marketing, mostly in
-          SQL and Python, with dashboards for the teams who need answers daily and
-          notebooks for the ones who need to dig in themselves.
-        </p> -->
       </div>
       <div class="stat-row" style="grid-column:1/-1;">
         <div class="stat">
@@ -568,8 +422,6 @@
         <div class="pill-row">
           <span class="pill">SQL</span>
           <span class="pill">Python (pandas, numpy)</span>
-          <span class="pill">R</span>
-          <span class="pill">DAX</span>
         </div>
       </div>
       <div class="skill-group">
@@ -609,7 +461,7 @@
       <h2>Projects</h2>
     </div>
 
-    <a class="project" href="project-churn.html">
+    <a class="project" href="projects-thesis.html">
       <div class="p-head">
         <h3>Predicting churn before it happens</h3>
         <span class="p-meta mono">Subscription product</span>
@@ -627,7 +479,7 @@
       <span class="p-link">Read the write-up →</span>
     </a>
 
-    <a class="project" href="project-pricing.html">
+    <a class="project" href="projects-self.html">
       <div class="p-head">
         <h3>Pricing experiment for the mid-tier plan</h3>
         <span class="p-meta mono">Growth</span>
@@ -645,7 +497,43 @@
       <span class="p-link">Read the write-up →</span>
     </a>
 
-    <a class="project" href="project-dashboard.html">
+    <a class="project" href="projects-kasdd.html">
+      <div class="p-head">
+        <h3>A dashboard the sales team actually opens</h3>
+        <span class="p-meta mono">Internal tooling</span>
+      </div>
+      <p class="p-desc">
+        Replaced a weekly static report with a live pipeline dashboard. Spent more time
+        interviewing sales reps about what they'd ignore than building charts.
+      </p>
+      <div class="p-metrics">
+        <span class="m"><span class="n">85%</span> weekly active use</span>
+        <span class="m"><span class="n">-4hrs</span> manual reporting / week</span>
+      </div>
+      <div class="p-tools mono">Tableau · dbt · Snowflake</div>
+      <span class="p-link">Read the write-up →</span>
+    </a>
+  </section>
+
+  <a class="project" href="projects-dm.html">
+      <div class="p-head">
+        <h3>A dashboard the sales team actually opens</h3>
+        <span class="p-meta mono">Internal tooling</span>
+      </div>
+      <p class="p-desc">
+        Replaced a weekly static report with a live pipeline dashboard. Spent more time
+        interviewing sales reps about what they'd ignore than building charts.
+      </p>
+      <div class="p-metrics">
+        <span class="m"><span class="n">85%</span> weekly active use</span>
+        <span class="m"><span class="n">-4hrs</span> manual reporting / week</span>
+      </div>
+      <div class="p-tools mono">Tableau · dbt · Snowflake</div>
+      <span class="p-link">Read the write-up →</span>
+    </a>
+  </section>
+
+  <a class="project" href="projects-basdat.html">
       <div class="p-head">
         <h3>A dashboard the sales team actually opens</h3>
         <span class="p-meta mono">Internal tooling</span>
@@ -723,7 +611,7 @@
     </div>
 
   <footer>
-    © 2026 Alyanda Astri. Built with plain HTML, CSS, and a little SVG.
+    © 2026 Alyanda Astri. Built with plain HTML and CSS.
   </footer>
 
 </div>
