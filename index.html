@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alyanda Astri — Data Analyst</title>
+<title>Alyanda Astri</title>
 <meta name="description" content="Portfolio of Alyanda Astri, Data Analyst — projects, skills, and experience.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
   :root{
     --paper:#EDEFEA;
@@ -80,7 +81,7 @@
 
   /* ---------- hero ---------- */
   .hero{
-    padding:56px 0 64px;
+    padding:56px 0 0px;
     border-bottom:1px solid var(--line);
   }
   .hero .eyebrow{
@@ -90,7 +91,7 @@
   }
   .hero h1{
     font-size:clamp(2.1rem, 5vw, 3rem);
-    max-width:18ch;
+    max-width:24ch;
   }
   .hero p.lede{
     margin-top:18px;
@@ -98,13 +99,13 @@
     color:var(--ink-soft);
     font-size:1.08rem;
   }
-  .hero .cta-row{
+  /* .hero .cta-row{
     margin-top:28px;
     display:flex;
     gap:16px;
     align-items:center;
     flex-wrap:wrap;
-  }
+  } */
   .btn{
     display:inline-block;
     background:var(--ink);
@@ -121,7 +122,7 @@
     border:1px solid var(--line);
   }
 
-  .chart-panel{
+  /* .chart-panel{
     margin-top:44px;
     border:1px solid var(--line);
     background:var(--paper-raised);
@@ -156,7 +157,7 @@
   @media (prefers-reduced-motion: reduce){
     #trend-svg path.line{ animation:none; stroke-dashoffset:0; }
     #trend-svg path.area, #trend-svg circle{ animation:none; opacity:1; }
-  }
+  } */
 
   /* ---------- sections ---------- */
   section{
@@ -317,7 +318,27 @@
     max-width:58ch;
   }
 
-  /* contact */
+  /* contact
+  .contact-block{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    align-items:flex-start;
+  }
+  .contact-block p{ color:var(--ink-soft); max-width:52ch; }
+  .contact-links{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:6px;
+  }
+  .contact-links a{
+    text-decoration:none;
+    border-bottom:1px solid var(--line);
+    padding-bottom:2px;
+  } */
+
+/* contact */
   .contact-block{
     display:flex;
     flex-direction:column;
@@ -337,6 +358,35 @@
     padding-bottom:2px;
   }
 
+  .icon-row{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    flex-wrap:wrap;
+  }
+  .icon-link{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+    color:var(--ink);
+    font-size:0.92rem;
+    border-bottom:none;
+  }
+  .icon-link svg{
+    width:20px;
+    height:20px;
+    flex-shrink:0;
+  }
+  .icon-link:hover{ color:var(--teal); }
+  .icon-link.linkedin svg{ color:#0A66C2; }
+  .icon-link.whatsapp svg{ color:#25D366; }
+  .email-plain{
+    color:var(--ink-soft);
+    font-size:0.92rem;
+    font-family:'IBM Plex Mono', monospace;
+  }
+
   footer{
     padding:32px 0 48px;
     color:var(--ink-soft);
@@ -349,9 +399,9 @@
     outline-offset:2px;
   }
 
-  @media (min-width:640px){
+  /* @media (min-width:640px){
     .about-grid{ grid-template-columns:1.3fr 1fr; }
-  }
+  } */
 
   @media (max-width:560px){
     header.site{ flex-direction:column; gap:14px; align-items:flex-start; }
@@ -365,7 +415,6 @@
 <header class="site">
   <div class="brand">Alyanda Astri</div>
   <nav>
-    <a href="#work">Work</a>
     <a href="#skills">Skills</a>
     <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
@@ -379,37 +428,17 @@
     <span class="mono eyebrow">Data Analyst — Jakarta, ID</span>
     <h1>A Data Analyst Aspire to-be</h1>
     <p class="lede">
-      Fresh graduate with passion in data handling, starting from processing messy and dirty data
-      into a neatly visualized dashboard. 
-      Three years finding the signal in retail and product data — from churn models to
-      pricing experiments. I care most about the part after the analysis: making sure
-      the right person acts on it.
+      A Computer Science Fresh Graduate form Universitas Indonesia with Passion
+      on pursuing a Data Analytics Career.
     </p>
-    <div class="cta-row">
-      <a class="btn" href="#work">See the work</a>
+    <!-- <div class="cta-row">
+      <a class="btn" href="#education">See the work</a>
       <a class="btn ghost" href="mailto:astrialyanda@gmail.com">astrialyanda@gmail.com</a>
+      <a href="https://wa.me/6281234567890">WhatsApp</a>
       <a href="projects.html" class="page-btn">View all projects</a>
-    </div>
+    </div> -->
 
-
-    <!-- <style>
-    .page-btn{
-      display:inline-block;      /* makes the link size to its padding */
-      background:#1C2430;
-      color:#EDEFEA;
-      text-decoration:none;      /* removes the underline */
-      padding:11px 20px;
-      border-radius:2px;
-      font-size:0.95rem;
-      font-weight:500;
-      transition:opacity 0.15s ease;
-    }
-    .page-btn:hover{
-      opacity:0.85;
-    }
-    </style> -->
-
-    <div class="chart-panel">
+    <!-- <div class="chart-panel">
       <div class="chart-label mono">
         <span>MONTHLY ACTIVE USERS — LAST 12 MONTHS</span>
         <span>+38% YoY</span>
@@ -425,7 +454,7 @@
         <path class="line" d="M0,120 L53,112 L107,118 L160,98 L213,102 L267,86 L320,90 L373,68 L427,72 L480,50 L533,54 L587,30 L640,26"/>
         <circle cx="640" cy="26" r="4" fill="#C98A3E" style="animation-delay:1.5s;"/>
       </svg>
-    </div>
+    </div> -->
   </section>
 
   <!-- ABOUT -->
@@ -437,10 +466,10 @@
     <div class="about-grid">
       <div class="about-text">
         <p>
-          I'm a data analyst who started in customer support — which turned out to be the
-          best training for this job. I'd spent two years listening to why people churned
-          before I ever wrote a line of SQL, so my analysis usually starts with a real
-          question, not a dataset looking for a home.
+          Computer Science fresh graduate from Universitas Indonesia with foundations in data analytics and machine learning. 
+          Experienced in writing SQL queries and analyzing business cases through academic projects, competition, and internship. 
+          Continuously learning data analytical skills such as Excel, Python and Power BI. 
+          Eager to further apply analytical and problem-solving skills in a data analytics role.
         </p>
         <p>
           Right now I work across pricing, retention, and lifecycle marketing, mostly in
@@ -515,7 +544,7 @@
   <section id="work">
     <div class="section-head">
       <span class="mono label">03</span>
-      <h2>Selected work</h2>
+      <h2>Projects</h2>
     </div>
 
     <div class="project">
@@ -618,14 +647,18 @@
         Open to data analyst and analytics engineering roles, and always happy to talk
         about a hard measurement problem over coffee (virtual or otherwise).
       </p>
-      <div class="contact-links">
-        <a href="mailto:alex.rivera@example.com">Email</a>
-        <a href="#">LinkedIn</a>
-        <a href="#">GitHub</a>
-        <a href="#">Resume (PDF)</a>
+      <div class="icon-row">
+        <a class="icon-link linkedin" href="https://linkedin.com/in/alyanda-astri-740754247" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-linkedin"></i>
+          LinkedIn
+        </a>
+        <a class="icon-link whatsapp" href="https://wa.me/6281297639830" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-whatsapp"></i>
+          WhatsApp
+        </a>
+        <span class="email-plain">astrialyanda@gmail.com</span>
       </div>
     </div>
-  </section>
 
   <footer>
     © 2026 Alyanda Astri. Built with plain HTML, CSS, and a little SVG.
