@@ -237,7 +237,7 @@
     background:var(--paper-raised);
   }
 
-  /* projects */
+  /* projects
   .project{
     border:1px solid var(--line);
     background:var(--paper-raised);
@@ -245,6 +245,68 @@
     margin-bottom:18px;
   }
   .project:last-child{ margin-bottom:0; }
+  .project .p-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .project h3{
+    font-size:1.15rem;
+  }
+  .project .p-meta{
+    color:var(--teal);
+  }
+  .project p.p-desc{
+    color:var(--ink-soft);
+    margin-top:10px;
+    max-width:62ch;
+  }
+  .project .p-metrics{
+    display:flex;
+    gap:18px;
+    margin-top:14px;
+    flex-wrap:wrap;
+  }
+  .project .p-metrics .m{
+    color:var(--ink);
+  }
+  .project .p-metrics .m .n{
+    color:var(--amber);
+    font-weight:500;
+  }
+  .project .p-tools{
+    margin-top:14px;
+    color:var(--ink-soft);
+    font-size:0.85rem;
+  }
+  .project a.p-link{
+    display:inline-block;
+    margin-top:14px;
+    font-size:0.9rem;
+    text-decoration:none;
+    border-bottom:1px solid var(--teal);
+  } */
+
+  a.project{
+    display:block;
+    border:1px solid var(--line);
+    background:var(--paper-raised);
+    padding:24px;
+    margin-bottom:18px;
+    text-decoration:none;
+    color:inherit;
+    transition:border-color 0.15s ease, transform 0.15s ease;
+  }
+  a.project:last-child{ margin-bottom:0; }
+  a.project:hover{
+    border-color:var(--amber);
+    transform:translateY(-2px);
+  }
+  a.project:hover .p-link{
+    text-decoration:underline;
+  }
   .project .p-head{
     display:flex;
     justify-content:space-between;
@@ -471,11 +533,11 @@
           Continuously learning data analytical skills such as Excel, Python and Power BI. 
           Eager to further apply analytical and problem-solving skills in a data analytics role.
         </p>
-        <p>
+        <!-- <p>
           Right now I work across pricing, retention, and lifecycle marketing, mostly in
           SQL and Python, with dashboards for the teams who need answers daily and
           notebooks for the ones who need to dig in themselves.
-        </p>
+        </p> -->
       </div>
       <div class="stat-row" style="grid-column:1/-1;">
         <div class="stat">
@@ -547,7 +609,7 @@
       <h2>Projects</h2>
     </div>
 
-    <div class="project">
+    <a class="project" href="project-churn.html">
       <div class="p-head">
         <h3>Predicting churn before it happens</h3>
         <span class="p-meta mono">Subscription product</span>
@@ -562,10 +624,10 @@
         <span class="m"><span class="n">-17%</span> churn in flagged segment</span>
       </div>
       <div class="p-tools mono">Python · scikit-learn · SQL · Looker</div>
-      <a class="p-link" href="#">Read the write-up →</a>
-    </div>
+      <span class="p-link">Read the write-up →</span>
+    </a>
 
-    <div class="project">
+    <a class="project" href="project-pricing.html">
       <div class="p-head">
         <h3>Pricing experiment for the mid-tier plan</h3>
         <span class="p-meta mono">Growth</span>
@@ -580,10 +642,10 @@
         <span class="m"><span class="n">12wk</span> test window</span>
       </div>
       <div class="p-tools mono">SQL · R · Bayesian A/B testing</div>
-      <a class="p-link" href="#">Read the write-up →</a>
-    </div>
+      <span class="p-link">Read the write-up →</span>
+    </a>
 
-    <div class="project">
+    <a class="project" href="project-dashboard.html">
       <div class="p-head">
         <h3>A dashboard the sales team actually opens</h3>
         <span class="p-meta mono">Internal tooling</span>
@@ -597,8 +659,8 @@
         <span class="m"><span class="n">-4hrs</span> manual reporting / week</span>
       </div>
       <div class="p-tools mono">Tableau · dbt · Snowflake</div>
-      <a class="p-link" href="#">Read the write-up →</a>
-    </div>
+      <span class="p-link">Read the write-up →</span>
+    </a>
   </section>
 
   <!-- EXPERIENCE -->
