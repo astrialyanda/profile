@@ -3,18 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alyanda Astri — Data Analyst</title>
+<title>Alyanda Astri</title>
 <meta name="description" content="Portfolio of Alyanda Astri, Data Analyst — projects, skills, and experience.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
   :root{
-    --paper:#EDEFEA;
+    --paper:#ceeefa;
     --paper-raised:#F4F5F1;
     --ink:#1C2430;
     --ink-soft:#4A5568;
-    --amber:#C98A3E;
+    --amber:#844e0d;
     --teal:#3F6E64;
     --line:#D8DAD3;
     --max-w:720px;
@@ -80,7 +81,7 @@
 
   /* ---------- hero ---------- */
   .hero{
-    padding:56px 0 64px;
+    padding:56px 0 0px;
     border-bottom:1px solid var(--line);
   }
   .hero .eyebrow{
@@ -90,7 +91,7 @@
   }
   .hero h1{
     font-size:clamp(2.1rem, 5vw, 3rem);
-    max-width:18ch;
+    max-width:24ch;
   }
   .hero p.lede{
     margin-top:18px;
@@ -98,13 +99,7 @@
     color:var(--ink-soft);
     font-size:1.08rem;
   }
-  .hero .cta-row{
-    margin-top:28px;
-    display:flex;
-    gap:16px;
-    align-items:center;
-    flex-wrap:wrap;
-  }
+
   .btn{
     display:inline-block;
     background:var(--ink);
@@ -119,43 +114,6 @@
     background:transparent;
     color:var(--ink);
     border:1px solid var(--line);
-  }
-
-  .chart-panel{
-    margin-top:44px;
-    border:1px solid var(--line);
-    background:var(--paper-raised);
-    padding:22px 22px 16px;
-  }
-  .chart-panel .chart-label{
-    display:flex;
-    justify-content:space-between;
-    color:var(--ink-soft);
-    margin-bottom:6px;
-  }
-  #trend-svg path.line{
-    fill:none;
-    stroke:var(--amber);
-    stroke-width:2.5;
-    stroke-linecap:round;
-    stroke-dasharray:600;
-    stroke-dashoffset:600;
-    animation:draw 1.6s ease-out forwards;
-  }
-  #trend-svg path.area{
-    fill:url(#areaGrad);
-    opacity:0;
-    animation:fadein 1s ease-out 1s forwards;
-  }
-  #trend-svg circle{
-    opacity:0;
-    animation:fadein 0.4s ease-out forwards;
-  }
-  @keyframes draw{ to{ stroke-dashoffset:0; } }
-  @keyframes fadein{ to{ opacity:1; } }
-  @media (prefers-reduced-motion: reduce){
-    #trend-svg path.line{ animation:none; stroke-dashoffset:0; }
-    #trend-svg path.area, #trend-svg circle{ animation:none; opacity:1; }
   }
 
   /* ---------- sections ---------- */
@@ -202,12 +160,12 @@
   }
   .stat .num{
     font-family:'Roboto Slab', serif;
-    font-size:1.6rem;
+    font-size:1.2rem;
     color:var(--ink);
   }
   .stat .desc{
     color:var(--ink-soft);
-    font-size:0.85rem;
+    font-size:0.95rem;
     margin-top:4px;
   }
 
@@ -237,13 +195,25 @@
   }
 
   /* projects */
+
   .project{
+    display:block;
     border:1px solid var(--line);
     background:var(--paper-raised);
     padding:24px;
     margin-bottom:18px;
+    text-decoration:none;
+    color:inherit;
+    transition:border-color 0.15s ease, transform 0.15s ease;
   }
   .project:last-child{ margin-bottom:0; }
+  a.project:hover{
+    border-color:var(--amber);
+    transform:translateY(-2px);
+  }
+  a.project:hover .p-link{
+    text-decoration:underline;
+  }
   .project .p-head{
     display:flex;
     justify-content:space-between;
@@ -287,6 +257,9 @@
     text-decoration:none;
     border-bottom:1px solid var(--teal);
   }
+  .project-static{
+  color:inherit;
+  }
 
   /* experience */
   .exp-item{
@@ -317,7 +290,7 @@
     max-width:58ch;
   }
 
-  /* contact */
+/* contact */
   .contact-block{
     display:flex;
     flex-direction:column;
@@ -337,6 +310,35 @@
     padding-bottom:2px;
   }
 
+  .icon-row{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    flex-wrap:wrap;
+  }
+  .icon-link{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+    color:var(--ink);
+    font-size:0.92rem;
+    border-bottom:none;
+  }
+  .icon-link svg{
+    width:20px;
+    height:20px;
+    flex-shrink:0;
+  }
+  .icon-link:hover{ color:var(--teal); }
+  .icon-link.linkedin svg{ color:#0A66C2; }
+  .icon-link.whatsapp svg{ color:#25D366; }
+  .email-plain{
+    color:var(--ink-soft);
+    font-size:0.92rem;
+    font-family:'IBM Plex Mono', monospace;
+  }
+
   footer{
     padding:32px 0 48px;
     color:var(--ink-soft);
@@ -347,10 +349,6 @@
   a:focus-visible, button:focus-visible{
     outline:2px solid var(--amber);
     outline-offset:2px;
-  }
-
-  @media (min-width:640px){
-    .about-grid{ grid-template-columns:1.3fr 1fr; }
   }
 
   @media (max-width:560px){
@@ -365,10 +363,10 @@
 <header class="site">
   <div class="brand">Alyanda Astri</div>
   <nav>
-    <a href="#work">Work</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
+    <!-- <a href="#skills">Skills</a> -->
+    <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
+    <a href="personal.html">Blog</a>
   </nav>
 </header>
 
@@ -377,61 +375,17 @@
   <h1>Under Construction</h1>
 
   <!-- HERO -->
-  <!-- <section class="hero" style="border-bottom:none; padding-top:12px;">
-    <span class="mono eyebrow">Data Analyst — Jakarta, ID</span>
-    <h1>A Data Analyst Aspire to-be</h1>
+  <section class="hero" style="border-bottom:none; padding-top:12px;">
+    <span class="mono eyebrow">Jakarta, ID</span>
+    <h1>Exploring Data Analytics and Build Web Applications</h1>
     <p class="lede">
-      Fresh graduate with passion in data handling, starting from processing messy and dirty data
-      into a neatly visualized dashboard. 
-      Three years finding the signal in retail and product data — from churn models to
-      pricing experiments. I care most about the part after the analysis: making sure
-      the right person acts on it.
+      A Computer Science Fresh Graduate form Universitas Indonesia with passion
+      on pursuing a Data Analytics and Web Development Career.
     </p>
-    <div class="cta-row">
-      <a class="btn" href="#work">See the work</a>
-      <a class="btn ghost" href="mailto:astrialyanda@gmail.com">astrialyanda@gmail.com</a>
-      <a href="projects.html" class="page-btn">View all projects</a>
-    </div>
-
-
-    <!-- <style>
-    .page-btn{
-      display:inline-block;      /* makes the link size to its padding */
-      background:#1C2430;
-      color:#EDEFEA;
-      text-decoration:none;      /* removes the underline */
-      padding:11px 20px;
-      border-radius:2px;
-      font-size:0.95rem;
-      font-weight:500;
-      transition:opacity 0.15s ease;
-    }
-    .page-btn:hover{
-      opacity:0.85;
-    }
-    </style> -->
-
-    <div class="chart-panel">
-      <div class="chart-label mono">
-        <span>MONTHLY ACTIVE USERS — LAST 12 MONTHS</span>
-        <span>+38% YoY</span>
-      </div>
-      <svg id="trend-svg" viewBox="0 0 640 160" width="100%" height="140" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#C98A3E" stop-opacity="0.22"/>
-            <stop offset="100%" stop-color="#C98A3E" stop-opacity="0"/>
-          </linearGradient>
-        </defs>
-        <path class="area" d="M0,120 L53,112 L107,118 L160,98 L213,102 L267,86 L320,90 L373,68 L427,72 L480,50 L533,54 L587,30 L640,26 L640,160 L0,160 Z"/>
-        <path class="line" d="M0,120 L53,112 L107,118 L160,98 L213,102 L267,86 L320,90 L373,68 L427,72 L480,50 L533,54 L587,30 L640,26"/>
-        <circle cx="640" cy="26" r="4" fill="#C98A3E" style="animation-delay:1.5s;"/>
-      </svg>
-    </div>
-  </section> -->
+  </section>
 
   <!-- ABOUT -->
-  <!-- <section id="about">
+  <section id="about">
     <div class="section-head">
       <span class="mono label">01</span>
       <h2>About</h2>
@@ -439,33 +393,28 @@
     <div class="about-grid">
       <div class="about-text">
         <p>
-          I'm a data analyst who started in customer support — which turned out to be the
-          best training for this job. I'd spent two years listening to why people churned
-          before I ever wrote a line of SQL, so my analysis usually starts with a real
-          question, not a dataset looking for a home.
-        </p>
-        <p>
-          Right now I work across pricing, retention, and lifecycle marketing, mostly in
-          SQL and Python, with dashboards for the teams who need answers daily and
-          notebooks for the ones who need to dig in themselves.
+          Computer Science fresh graduate from Universitas Indonesia with foundations in data analytics, 
+          data science, and web development. Experienced in writing SQL queries and analyzing business 
+          cases through academic projects, competition, and internship. Eager to further apply analytical 
+          and problem-solving skills in a data analytics role.
         </p>
       </div>
       <div class="stat-row" style="grid-column:1/-1;">
         <div class="stat">
-          <div class="num">40+</div>
-          <div class="desc">analyses shipped to stakeholders</div>
+          <div class="num">Ex-Backend Engineer Intern</div>
+          <div class="desc">kumparan</div>
         </div>
         <div class="stat">
-          <div class="num">3</div>
-          <div class="desc">years in analytics roles</div>
+          <div class="num">Data Analytics Dash Finalist</div>
+          <div class="desc">COMPFEST15</div>
         </div>
         <div class="stat">
-          <div class="num">$1.2M</div>
-          <div class="desc">revenue impact attributed to my recs</div>
+          <div class="num">Mentor<br></br></div>
+          <div class="desc">DDP-0 2023</div>
         </div>
       </div>
     </div>
-  </section> -->
+  </section>
 
   <!-- SKILLS -->
   <!-- <section id="skills">
@@ -475,30 +424,17 @@
     </div>
     <div class="skill-groups">
       <div class="skill-group">
-        <h3>Languages & querying</h3>
+        <h3>Languages</h3>
         <div class="pill-row">
           <span class="pill">SQL</span>
           <span class="pill">Python (pandas, numpy)</span>
-          <span class="pill">R</span>
-          <span class="pill">DAX</span>
         </div>
       </div>
       <div class="skill-group">
         <h3>Visualization & BI</h3>
         <div class="pill-row">
-          <span class="pill">Tableau</span>
           <span class="pill">Power BI</span>
-          <span class="pill">Looker</span>
-          <span class="pill">Matplotlib / Seaborn</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h3>Statistics & modeling</h3>
-        <div class="pill-row">
-          <span class="pill">A/B testing</span>
-          <span class="pill">Regression</span>
-          <span class="pill">Cohort & churn analysis</span>
-          <span class="pill">Forecasting</span>
+          <span class="pill">Matplotlib</span>
         </div>
       </div>
       <div class="skill-group">
@@ -514,52 +450,52 @@
   </section> -->
 
   <!-- WORK / PROJECTS -->
-  <!-- <section id="work">
+  <section id="work">
     <div class="section-head">
       <span class="mono label">03</span>
-      <h2>Selected work</h2>
+      <h2>Projects</h2>
     </div>
 
-    <div class="project">
+    <a class="project" href="projects-self.html">
       <div class="p-head">
-        <h3>Predicting churn before it happens</h3>
-        <span class="p-meta mono">Subscription product</span>
+        <h3>Dummy Company HR Report</h3>
+        <span class="p-meta mono">Self Project</span>
       </div>
       <p class="p-desc">
-        Built a churn model on 18 months of usage data to flag at-risk subscribers 30 days
-        out, then worked with lifecycle marketing to target them with the right offer
-        instead of a blanket discount.
+        Cleaned data contents on Ms. Excel, validate data type and structure
+        on Power BI, then analyze and visualize data into an interactive dashboard 
+        also in Power BI.
       </p>
       <div class="p-metrics">
-        <span class="m"><span class="n">0.84</span> AUC</span>
+        <span class="m"><span class="n"></span> AUC</span>
         <span class="m"><span class="n">-17%</span> churn in flagged segment</span>
       </div>
-      <div class="p-tools mono">Python · scikit-learn · SQL · Looker</div>
-      <a class="p-link" href="#">Read the write-up →</a>
-    </div>
+      <div class="p-tools mono">Excel · Power BI </div>
+      <span class="p-link">See more →</span>
+    </a>
 
-    <div class="project">
+    <div class="project project-static">
       <div class="p-head">
-        <h3>Pricing experiment for the mid-tier plan</h3>
-        <span class="p-meta mono">Growth</span>
+        <h3>Automatic Topic Suggestion</h3>
+        <span class="p-meta mono">Internship</span>
       </div>
       <p class="p-desc">
-        Designed and analyzed an A/B test across three price points, controlling for
-        seasonality and regional differences, to find where conversion held without
-        hurting margin.
+        Co-designed and co-developed an automatic topic suggestion feature on
+        company website. Designed in a cross-service architecture using REST, gRPC,
+        and GraphQL. Used message queueing to achieve near real-time cross-service 
+        communication. Written in Go with Echo framework.
       </p>
       <div class="p-metrics">
-        <span class="m"><span class="n">+9%</span> conversion</span>
-        <span class="m"><span class="n">12wk</span> test window</span>
+        <span class="m"><span class="n">Golang Echo</span> REST gRPC GraphQL</span>
+        <span class="m"><span class="n"></span> test window</span>
       </div>
-      <div class="p-tools mono">SQL · R · Bayesian A/B testing</div>
-      <a class="p-link" href="#">Read the write-up →</a>
+      <div class="p-tools mono">Go · REST · gRPC · GraphQL · NATS</div>
     </div>
 
-    <div class="project">
+    <a class="project" href="projects-kasdd.html">
       <div class="p-head">
-        <h3>A dashboard the sales team actually opens</h3>
-        <span class="p-meta mono">Internal tooling</span>
+        <h3>Analysis and Prediction on Global Terrorism Dataset</h3>
+        <span class="p-meta mono">Course Project</span>
       </div>
       <p class="p-desc">
         Replaced a weekly static report with a live pipeline dashboard. Spent more time
@@ -570,9 +506,43 @@
         <span class="m"><span class="n">-4hrs</span> manual reporting / week</span>
       </div>
       <div class="p-tools mono">Tableau · dbt · Snowflake</div>
-      <a class="p-link" href="#">Read the write-up →</a>
-    </div>
-  </section> -->
+      <span class="p-link">Read the write-up →</span>
+    </a>
+
+    <a class="project" href="projects-dm.html">
+      <div class="p-head">
+        <h3>Graph Mining on Amazon Co-Purchasing Data</h3>
+        <span class="p-meta mono">Course Project</span>
+      </div>
+      <p class="p-desc">
+        Replaced a weekly static report with a live pipeline dashboard. Spent more time
+        interviewing sales reps about what they'd ignore than building charts.
+      </p>
+      <div class="p-metrics">
+        <span class="m"><span class="n">85%</span> weekly active use</span>
+        <span class="m"><span class="n">-4hrs</span> manual reporting / week</span>
+      </div>
+      <div class="p-tools mono">Tableau · dbt · Snowflake</div>
+      <span class="p-link">Read the write-up →</span>
+    </a>
+
+    <a class="project" href="projects-basdat.html">
+      <div class="p-head">
+        <h3>PacilFlix (Streaming Website Simulation)</h3>
+        <span class="p-meta mono">Course Project</span>
+      </div>
+      <p class="p-desc">
+        Replaced a weekly static report with a live pipeline dashboard. Spent more time
+        interviewing sales reps about what they'd ignore than building charts.
+      </p>
+      <div class="p-metrics">
+        <span class="m"><span class="n">85%</span> weekly active use</span>
+        <span class="m"><span class="n">-4hrs</span> manual reporting / week</span>
+      </div>
+      <div class="p-tools mono">Tableau · dbt · Snowflake</div>
+      <span class="p-link">Read the write-up →</span>
+    </a>
+  </section>
 
   <!-- EXPERIENCE -->
   <!-- <section id="experience">
@@ -610,7 +580,7 @@
   </section> -->
 
   <!-- CONTACT -->
-  <!-- <section id="contact">
+  <section id="contact">
     <div class="section-head">
       <span class="mono label">05</span>
       <h2>Get in touch</h2>
@@ -620,17 +590,21 @@
         Open to data analyst and analytics engineering roles, and always happy to talk
         about a hard measurement problem over coffee (virtual or otherwise).
       </p>
-      <div class="contact-links">
-        <a href="mailto:alex.rivera@example.com">Email</a>
-        <a href="#">LinkedIn</a>
-        <a href="#">GitHub</a>
-        <a href="#">Resume (PDF)</a>
+      <div class="icon-row">
+        <a class="icon-link linkedin" href="https://linkedin.com/in/alyanda-astri-740754247" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-linkedin"></i>
+          LinkedIn
+        </a>
+        <a class="icon-link whatsapp" href="https://wa.me/6281297639830" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-whatsapp"></i>
+          WhatsApp
+        </a>
+        <span class="email-plain">astrialyanda@gmail.com</span>
       </div>
     </div>
-  </section> -->
 
   <footer>
-    © 2026 Alyanda Astri. Built with plain HTML, CSS, and a little SVG.
+    © 2026 Alyanda Astri. Built with plain HTML and CSS.
   </footer>
 
 </div>
