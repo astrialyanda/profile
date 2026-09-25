@@ -9,354 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<style>
-  :root{
-    --paper:#ceeefa;
-    --paper-raised:#F4F5F1;
-    --ink:#1C2430;
-    --ink-soft:#4A5568;
-    --amber:#844e0d;
-    --teal:#3F6E64;
-    --line:#D8DAD3;
-    --max-w:720px;
-  }
-
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Inter', sans-serif;
-    font-size:17px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-
-  h1,h2,h3{
-    font-family:'Roboto Slab', serif;
-    font-weight:700;
-    line-height:1.15;
-    margin:0;
-  }
-
-  .mono{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.8em;
-    letter-spacing:0.01em;
-  }
-
-  a{color:var(--teal);}
-
-  /* ---------- layout shell ---------- */
-  .wrap{
-    max-width:var(--max-w);
-    margin:0 auto;
-    padding:0 28px;
-  }
-
-  header.site{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:28px 28px;
-    max-width:var(--max-w);
-    margin:0 auto;
-  }
-  header.site .brand{
-    font-family:'Roboto Slab', serif;
-    font-weight:700;
-    font-size:1.05rem;
-  }
-  header.site nav{
-    display:flex;
-    gap:24px;
-  }
-  header.site nav a{
-    color:var(--ink-soft);
-    text-decoration:none;
-    font-size:0.92rem;
-  }
-  header.site nav a:hover{ color:var(--ink); }
-
-  /* ---------- hero ---------- */
-  .hero{
-    padding:56px 0 0px;
-    border-bottom:1px solid var(--line);
-  }
-  .hero .eyebrow{
-    color:var(--teal);
-    margin-bottom:14px;
-    display:block;
-  }
-  .hero h1{
-    font-size:clamp(2.1rem, 5vw, 3rem);
-    max-width:24ch;
-  }
-  .hero p.lede{
-    margin-top:18px;
-    max-width:56ch;
-    color:var(--ink-soft);
-    font-size:1.08rem;
-  }
-
-  .btn{
-    display:inline-block;
-    background:var(--ink);
-    color:var(--paper);
-    text-decoration:none;
-    padding:11px 20px;
-    border-radius:2px;
-    font-size:0.94rem;
-    font-weight:500;
-  }
-  .btn.ghost{
-    background:transparent;
-    color:var(--ink);
-    border:1px solid var(--line);
-  }
-
-  /* ---------- sections ---------- */
-  section{
-    padding:52px 0;
-    border-bottom:1px solid var(--line);
-  }
-  section:last-of-type{ border-bottom:none; }
-
-  .section-head{
-    display:flex;
-    gap:14px;
-    align-items:baseline;
-    margin-bottom:28px;
-    border-left:3px solid var(--amber);
-    padding-left:14px;
-  }
-  .section-head span.label{
-    color:var(--ink-soft);
-  }
-  .section-head h2{
-    font-size:1.5rem;
-  }
-
-  /* about */
-  .about-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:24px;
-  }
-  .about-text p{ color:var(--ink-soft); max-width:64ch; }
-  .about-text p + p{ margin-top:14px; }
-
-  .stat-row{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:16px;
-    margin-top:24px;
-  }
-  .stat{
-    border:1px solid var(--line);
-    padding:16px 14px;
-    background:var(--paper-raised);
-  }
-  .stat .num{
-    font-family:'Roboto Slab', serif;
-    font-size:1.2rem;
-    color:var(--ink);
-  }
-  .stat .desc{
-    color:var(--ink-soft);
-    font-size:0.95rem;
-    margin-top:4px;
-  }
-
-  /* skills */
-  .skill-groups{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:22px;
-  }
-  .skill-group h3{
-    font-family:'Inter', sans-serif;
-    font-weight:600;
-    font-size:0.95rem;
-    color:var(--ink-soft);
-    margin-bottom:10px;
-  }
-  .pill-row{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-  }
-  .pill{
-    border:1px solid var(--line);
-    padding:6px 12px;
-    font-size:0.85rem;
-    background:var(--paper-raised);
-  }
-
-  /* projects */
-
-  .project{
-    display:block;
-    border:1px solid var(--line);
-    background:var(--paper-raised);
-    padding:24px;
-    margin-bottom:18px;
-    text-decoration:none;
-    color:inherit;
-    transition:border-color 0.15s ease, transform 0.15s ease;
-  }
-  .project:last-child{ margin-bottom:0; }
-  a.project:hover{
-    border-color:var(--amber);
-    transform:translateY(-2px);
-  }
-  a.project:hover .p-link{
-    text-decoration:underline;
-  }
-  .project .p-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:baseline;
-    gap:12px;
-    flex-wrap:wrap;
-  }
-  .project h3{
-    font-size:1.15rem;
-  }
-  .project .p-meta{
-    color:var(--teal);
-  }
-  .project p.p-desc{
-    color:var(--ink-soft);
-    margin-top:10px;
-    max-width:62ch;
-  }
-  .project .p-metrics{
-    display:flex;
-    gap:18px;
-    margin-top:14px;
-    flex-wrap:wrap;
-  }
-  .project .p-metrics .m{
-    color:var(--ink);
-  }
-  .project .p-metrics .m .n{
-    color:var(--amber);
-    font-weight:500;
-  }
-  .project .p-tools{
-    margin-top:14px;
-    color:var(--ink-soft);
-    font-size:0.85rem;
-  }
-  .project a.p-link{
-    display:inline-block;
-    margin-top:14px;
-    font-size:0.9rem;
-    text-decoration:none;
-    border-bottom:1px solid var(--teal);
-  }
-  .project-static{
-  color:inherit;
-  }
-
-  /* experience */
-  .exp-item{
-    display:grid;
-    grid-template-columns:110px 1fr;
-    gap:16px;
-    padding:18px 0;
-    border-top:1px solid var(--line);
-  }
-  .exp-item:first-child{ border-top:none; }
-  .exp-item .exp-date{
-    color:var(--ink-soft);
-  }
-  .exp-item h3{
-    font-size:1.02rem;
-    font-family:'Inter', sans-serif;
-    font-weight:600;
-  }
-  .exp-item .exp-org{
-    color:var(--teal);
-    font-size:0.92rem;
-    margin-top:2px;
-  }
-  .exp-item p{
-    color:var(--ink-soft);
-    margin-top:8px;
-    font-size:0.95rem;
-    max-width:58ch;
-  }
-
-/* contact */
-  .contact-block{
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-    align-items:flex-start;
-  }
-  .contact-block p{ color:var(--ink-soft); max-width:52ch; }
-  .contact-links{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-    margin-top:6px;
-  }
-  .contact-links a{
-    text-decoration:none;
-    border-bottom:1px solid var(--line);
-    padding-bottom:2px;
-  }
-
-  .icon-row{
-    display:flex;
-    align-items:center;
-    gap:22px;
-    flex-wrap:wrap;
-  }
-  .icon-link{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    text-decoration:none;
-    color:var(--ink);
-    font-size:0.92rem;
-    border-bottom:none;
-  }
-  .icon-link svg{
-    width:20px;
-    height:20px;
-    flex-shrink:0;
-  }
-  .icon-link:hover{ color:var(--teal); }
-  .icon-link.linkedin svg{ color:#0A66C2; }
-  .icon-link.whatsapp svg{ color:#25D366; }
-  .email-plain{
-    color:var(--ink-soft);
-    font-size:0.92rem;
-    font-family:'IBM Plex Mono', monospace;
-  }
-
-  footer{
-    padding:32px 0 48px;
-    color:var(--ink-soft);
-    font-size:0.85rem;
-  }
-
-  /* focus visibility */
-  a:focus-visible, button:focus-visible{
-    outline:2px solid var(--amber);
-    outline-offset:2px;
-  }
-
-  @media (max-width:560px){
-    header.site{ flex-direction:column; gap:14px; align-items:flex-start; }
-    .stat-row{ grid-template-columns:1fr; }
-    .exp-item{ grid-template-columns:1fr; }
-  }
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -375,7 +28,7 @@
   <!-- HERO -->
   <section class="hero" style="border-bottom:none; padding-top:12px;">
     <span class="mono eyebrow">Jakarta, ID</span>
-    <h1>Exploring Data Analytics and Build Web Applications</h1>
+    <h1>Exploring Data Analytics and Building Web Applications</h1>
     <p class="lede">
       A Computer Science Fresh Graduate from Universitas Indonesia with passion
       on pursuing a Data Analytics and Web Development Career.
@@ -414,138 +67,96 @@
     </div>
   </section>
 
-  <!-- SKILLS -->
-  <!-- <section id="skills">
-    <div class="section-head">
-      <span class="mono label">02</span>
-      <h2>Skills</h2>
-    </div>
-    <div class="skill-groups">
-      <div class="skill-group">
-        <h3>Languages</h3>
-        <div class="pill-row">
-          <span class="pill">SQL</span>
-          <span class="pill">Python (pandas, numpy)</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h3>Visualization & BI</h3>
-        <div class="pill-row">
-          <span class="pill">Power BI</span>
-          <span class="pill">Matplotlib</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h3>Tools</h3>
-        <div class="pill-row">
-          <span class="pill">BigQuery</span>
-          <span class="pill">Snowflake</span>
-          <span class="pill">dbt</span>
-          <span class="pill">Git</span>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
   <!-- WORK / PROJECTS -->
-  <section id="work">
+  <section id="projects">
     <div class="section-head">
       <span class="mono label">03</span>
       <h2>Projects</h2>
     </div>
 
-    <a class="project" href="projects-self.html">
-      <div class="p-head">
-        <h3>Dummy Company HR Report</h3>
-        <span class="p-meta mono">Self Project</span>
-      </div>
-      <p class="p-desc">
-        Cleaned data contents on Ms. Excel, validate data type and structure
-        on Power BI, then analyze and visualize data into an interactive dashboard 
-        also in Power BI.
-      </p>
-      <div class="p-metrics">
-        <span class="m"><span class="n"></span> AUC</span>
-        <span class="m"><span class="n">-17%</span> churn in flagged segment</span>
-      </div>
-      <div class="p-tools mono">Excel · Power BI </div>
-      <span class="p-link">See more →</span>
-    </a>
+    <p class="carousel-hint mono">← swipe to see more →</p>
+    <div class="project-carousel">
+      <a class="project" href="projects-self.html">
+        <div class="p-head">
+          <h3>Dummy Company HR Report</h3>
+          <span class="p-meta mono">Self Project</span>
+        </div>
+        <p class="p-desc">
+          Cleaned data contents on Ms. Excel, validate data type and structure
+          on Power BI, then analyze and visualize data into an interactive dashboard 
+          also in Power BI.
+        </p>
+        <div class="p-tools mono">Excel · Power BI </div>
+        <span class="p-link">See more →</span>
+      </a>
 
-    <div class="project project-static">
-      <div class="p-head">
-        <h3>Automatic Topic Suggestion</h3>
-        <span class="p-meta mono">Internship</span>
+      <div class="project project-static">
+        <div class="p-head">
+          <h3>Automatic Topic Suggestion</h3>
+          <span class="p-meta mono">Internship</span>
+        </div>
+        <p class="p-desc">
+          Co-designed and co-developed an automatic topic suggestion feature on
+          company website. Designed in a cross-service architecture using REST, gRPC,
+          and GraphQL. Used message queueing to achieve near real-time cross-service 
+          communication. Written in Go with Echo framework.
+        </p>
+        <div class="p-tools mono">Go · REST · gRPC · GraphQL · NATS</div>
       </div>
-      <p class="p-desc">
-        Co-designed and co-developed an automatic topic suggestion feature on
-        company website. Designed in a cross-service architecture using REST, gRPC,
-        and GraphQL. Used message queueing to achieve near real-time cross-service 
-        communication. Written in Go with Echo framework.
-      </p>
-      <div class="p-metrics">
-        <span class="m"><span class="n">Golang Echo</span> REST gRPC GraphQL</span>
-        <span class="m"><span class="n"></span> test window</span>
-      </div>
-      <div class="p-tools mono">Go · REST · gRPC · GraphQL · NATS</div>
+
+      <a class="project" href="projects-kasdd.html">
+        <div class="p-head">
+          <h3>Analysis and Prediction on Global Terrorism Dataset</h3>
+          <span class="p-meta mono">Course Project</span>
+        </div>
+        <p class="p-desc">
+          Performed exploratory data analysis (EDA) using Matplotlib to uncover patterns and 
+          trends of the dataset. Cleaned and transformed raw data using Python Pandas. Built 
+          classification and regression models to predict terrorism target types, and applied 
+          clustering techniques to group and identify data patterns
+        </p>
+        <!-- <div class="p-metrics">
+          <span class="m"><span class="n">85%</span> weekly active use</span>
+          <span class="m"><span class="n">-4hrs</span> manual reporting / week</span>
+        </div> -->
+        <div class="p-tools mono">Pandas · Matplotlib · Numpy</div>
+        <span class="p-link">See more →</span>
+      </a>
+
+      <a class="project" href="projects-dm.html">
+        <div class="p-head">
+          <h3>Graph Mining on Amazon Co-Purchasing Data</h3>
+          <span class="p-meta mono">Course Project</span>
+        </div>
+        <p class="p-desc">
+          Applied CRISP-DM methodology to structure the analysis, from business and data 
+          understanding, data cleaning, modelling and evaluation on a graph structured 
+          e-commerce data. Identified popular e-commerce item through network data 
+          analysis and identified co-puchasing pattern by performing graph embedding and 
+          community detection.
+        </p>
+        <!-- <div class="p-metrics">
+          <span class="m"><span class="n">85%</span> weekly active use</span>
+          <span class="m"><span class="n">-4hrs</span> manual reporting / week</span>
+        </div> -->
+        <div class="p-tools mono">Pandas · Matplotlib · Numpy</div>
+        <span class="p-link">See more →</span>
+      </a>
+
+      <a class="project" href="projects-basdat.html">
+        <div class="p-head">
+          <h3>PacilFlix (Streaming Website Simulation)</h3>
+          <span class="p-meta mono">Course Project</span>
+        </div>
+        <p class="p-desc">
+          Built subscription and package management features using Python Django and raw 
+          SQL, implementing multi table joins, nested queries, and conditional filtering. 
+          Developed Web frontend (HTML/CSS) and backend (Django, raw SQL) in a team of three.
+        </p>
+        <div class="p-tools mono">Django · SQL · Tailwind CSS</div>
+        <span class="p-link">See more →</span>
+      </a>
     </div>
-
-    <a class="project" href="projects-kasdd.html">
-      <div class="p-head">
-        <h3>Analysis and Prediction on Global Terrorism Dataset</h3>
-        <span class="p-meta mono">Course Project</span>
-      </div>
-      <p class="p-desc">
-        Performed exploratory data analysis (EDA) using Matplotlib to uncover patterns and 
-        trends of the dataset. Cleaned and transformed raw data using Python Pandas. Built 
-        classification and regression models to predict terrorism target types, and applied 
-        clustering techniques to group and identify data patterns
-      </p>
-      <!-- <div class="p-metrics">
-        <span class="m"><span class="n">85%</span> weekly active use</span>
-        <span class="m"><span class="n">-4hrs</span> manual reporting / week</span>
-      </div> -->
-      <div class="p-tools mono">Pandas · Matplotlib · Numpy</div>
-      <span class="p-link">Read the write-up →</span>
-    </a>
-
-    <a class="project" href="projects-dm.html">
-      <div class="p-head">
-        <h3>Graph Mining on Amazon Co-Purchasing Data</h3>
-        <span class="p-meta mono">Course Project</span>
-      </div>
-      <p class="p-desc">
-        Applied CRISP-DM methodology to structure the analysis, from business and data 
-        understanding, data cleaning, modelling and evaluation on a graph structured 
-        e-commerce data. Identified popular e-commerce item through network data 
-        analysis and identified co-puchasing pattern by performing graph embedding and 
-        community detection.
-      </p>
-      <!-- <div class="p-metrics">
-        <span class="m"><span class="n">85%</span> weekly active use</span>
-        <span class="m"><span class="n">-4hrs</span> manual reporting / week</span>
-      </div> -->
-      <div class="p-tools mono">Pandas · Matplotlib · Numpy</div>
-      <span class="p-link">Read the write-up →</span>
-    </a>
-
-    <a class="project" href="projects-basdat.html">
-      <div class="p-head">
-        <h3>PacilFlix (Streaming Website Simulation)</h3>
-        <span class="p-meta mono">Course Project</span>
-      </div>
-      <p class="p-desc">
-        Built subscription and package management features using Python Django and raw 
-        SQL, implementing multi table joins, nested queries, and conditional filtering. 
-        Developed Web frontend (HTML/CSS) and backend (Django, raw SQL) in a team of three.
-      </p>
-      <!-- <div class="p-metrics">
-        <span class="m"><span class="n">85%</span> weekly active use</span>
-        <span class="m"><span class="n">-4hrs</span> manual reporting / week</span>
-      </div> -->
-      <div class="p-tools mono">Django · SQL · Tailwind CSS</div>
-      <span class="p-link">Read the write-up →</span>
-    </a>
   </section>
 
   <!-- EXPERIENCE -->
@@ -591,8 +202,8 @@
     </div>
     <div class="contact-block">
       <p>
-        Open to data analyst and analytics engineering roles, and always happy to talk
-        about a hard measurement problem over coffee (virtual or otherwise).
+        Open to data analytics and software engineering roles, and happy to talk
+        about further requirements.
       </p>
       <div class="icon-row">
         <a class="icon-link linkedin" href="https://linkedin.com/in/alyanda-astri-740754247" target="_blank" rel="noopener noreferrer">
