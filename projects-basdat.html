@@ -1,1 +1,82 @@
-<h1>Hello World!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PacilFlix - Alyanda Astri</title>
+<meta name="description" content="Case study: PacilFlix Streaming Platform Simulation">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+ 
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="site">
+    <a class="brand" href="index.html" style="text-decoration:none; color:var(--ink);">Alyanda Astri</a>
+    <nav>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="personal.html">Blog</a>
+    </nav>
+    </header>
+
+    <div class="wrap">
+        <a class="back-link" href="index.html#work">← Back to all projects</a>
+ 
+        <div class="detail-head">
+            <span class="mono detail-meta">Self study · 2026</span>
+            <h1>PacilFlix: Streaming Website Simulation</h1>
+        </div>
+        
+        <div class="screenshot-frame">
+            <img src="img/basdat1.png" alt="PacilFlix streaming platform simulation page">
+        </div>
+        <p class="screenshot-caption">
+            PacilFlix Contributor List page.
+        </p>
+        
+        <div class="detail-body">
+        
+            <section>
+            <h2>What I did</h2>
+            <p>
+                This was a project for a database course. We were assigned as a group of three
+                and were given the same task for each group. The task given in this group project
+                have main objective to understand database usage rather than making a web application.
+                <br></br>
+                The group project were split into 4 parts. The first part is to make an Enhanced Entity
+                Relationship Diagram (EERD) from a given study case, which is the PacilFlix streaming platform
+                case. The second part is to make a Relational Model from it. On the third part, we 
+                started making the SQL queries regarding the use cases of the PacilFlix. On my part,
+                I get to create the queries for customer subscription plan and content data management
+                features. To be noted is this project required student to not use ORM and use raw SQL
+                instead. We also started building the app, including the frontend. On the last part, we
+                completed the app implementation as well as deployment. Then we did UAT (User Acceptance 
+                Test) with a teaching assistant. And by the UAT, we concluded this group project.
+                <br></br>
+                This project, especially on the last two parts were focused on writing SQL queries
+                for the case study. In this project I explored SQL up to basic select and insert, created
+                the necessary database schema, used triggers to initiate automated procedure, implemented multi
+                table joins, nested queries and conditional filtering.
+            </p>
+            <ul>
+                <li>Implemented raw SQL on Django web app with psycopg2</li>
+                <li>Created EERD and relational model by given case study</li>
+                <li>Wrote DDL queries, including TRIGGERS procedure</li>
+            </ul>
+            </section>
+        
+            <div class="tools-row mono" style="margin-top:36px; padding-top:20px; border-top:1px solid var(--line); color:var(--ink-soft); font-size:0.9rem;">
+            Tools: Python Django · SQL · Tailwind CSS
+            </div>
+        </div>
+        
+        </div>
+        
+        <footer style="text-align:center;">© 2026 Alyanda Astri</footer>
+ 
+    </div>
+</body>

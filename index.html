@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alyanda Astri</title>
-<meta name="description" content="Portfolio of Alyanda Astri, Data Analyst — projects, skills, and experience.">
+<meta name="description" content="Portfolio of Alyanda Astri, Backend Engineer and Data Analyst">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -16,7 +16,6 @@
 <header class="site">
   <div class="brand">Alyanda Astri</div>
   <nav>
-    <!-- <a href="#skills">Skills</a> -->
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
     <a href="personal.html">Blog</a>
@@ -31,7 +30,7 @@
     <h1>Exploring Data Analytics and Building Web Applications</h1>
     <p class="lede">
       A Computer Science Fresh Graduate from Universitas Indonesia with passion
-      on pursuing a Data Analytics and Web Development Career.
+      on pursuing a Data Analytics and Software Engineering Career.
     </p>
   </section>
 
@@ -45,9 +44,12 @@
       <div class="about-text">
         <p>
           Computer Science fresh graduate from Universitas Indonesia with foundations in data analytics, 
-          data science, and web development. Experienced in writing SQL queries and analyzing business 
-          cases through academic projects, competition, and internship. Eager to further apply analytical 
+          data science, and web development. Experienced in data analytics and web architecture cases
+          through academic projects, competition, and internship. Eager to further apply analytical 
           and problem-solving skills in a data analytics role.
+          <br></br>
+          Furthermore, currently focusing on learning more into data analytics such as learning Excel
+          formulas, Power BI dashboard making, refreshing SQL skills and using Python to do data cleaning.
         </p>
       </div>
       <div class="stat-row" style="grid-column:1/-1;">
@@ -60,7 +62,7 @@
           <div class="desc">COMPFEST15</div>
         </div>
         <div class="stat">
-          <div class="num">Mentor<br></br></div>
+          <div class="num">Mentor</div>
           <div class="desc">DDP-0 2023</div>
         </div>
       </div>
@@ -74,8 +76,19 @@
       <h2>Projects</h2>
     </div>
 
-    <p class="carousel-hint mono">← swipe to see more →</p>
-    <div class="project-carousel">
+    <div class="carousel-controls">
+      <p class="carousel-hint mono">swipe or use the arrows</p>
+      <div class="carousel-buttons">
+        <button class="carousel-arrow hidden" id="arrow-left" aria-label="Show previous projects">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="carousel-arrow" id="arrow-right" aria-label="Show more projects">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="project-carousel" id="project-carousel">
       <a class="project" href="projects-self.html">
         <div class="p-head">
           <h3>Dummy Company HR Report</h3>
@@ -92,17 +105,45 @@
 
       <div class="project project-static">
         <div class="p-head">
+          <h3>User Friendly Rule-Based Transliteration System for Javanese and Sundanese Pegon to Latin</h3>
+          <span class="p-meta mono">Thesis</span>
+        </div>
+        <p class="p-desc">
+          Performed further research and development on an existing rule-based
+          Pegon-Latin transliteration system to achieve user-friendliness. Analyzed 
+          old Pegon manuscripts to find patterns and compile new rules which then applied
+          in the existing system.
+        </p>
+        <div class="p-tools mono">Excel · Javascript</div>
+      </div>
+
+      <div class="project project-static">
+        <div class="p-head">
           <h3>Automatic Topic Suggestion</h3>
           <span class="p-meta mono">Internship</span>
         </div>
         <p class="p-desc">
-          Co-designed and co-developed an automatic topic suggestion feature on
+          Co-designed and co-developed an automatic topic suggestion feature based on
           company website. Designed in a cross-service architecture using REST, gRPC,
           and GraphQL. Used message queueing to achieve near real-time cross-service 
-          communication. Written in Go with Echo framework.
+          communication. Written in Golang Echo.
         </p>
         <div class="p-tools mono">Go · REST · gRPC · GraphQL · NATS</div>
       </div>
+
+      <a class="project" href="projects-ppl.html">
+        <div class="p-head">
+          <h3>SiMagang</h3>
+          <span class="p-meta mono">Course Project</span>
+        </div>
+        <p class="p-desc">
+          Developed an information systems web app for faculty internship management.
+          Including internship logs, reports, credit transfer scheduling, and lecturers
+          and supervisor approval. Developed in an Agile scrum environment. 
+        </p>
+        <div class="p-tools mono">Django · HTML · Tailwind CSS · Docker</div>
+        <span class="p-link">See more →</span>
+      </a>
 
       <a class="project" href="projects-kasdd.html">
         <div class="p-head">
@@ -110,15 +151,11 @@
           <span class="p-meta mono">Course Project</span>
         </div>
         <p class="p-desc">
-          Performed exploratory data analysis (EDA) using Matplotlib to uncover patterns and 
-          trends of the dataset. Cleaned and transformed raw data using Python Pandas. Built 
-          classification and regression models to predict terrorism target types, and applied 
-          clustering techniques to group and identify data patterns
+          Performed exploratory data analysis (EDA) to uncover patterns and 
+          trends of the dataset. Cleaned and transformed raw data to build
+          models to predict terrorism target types. Furthermore, also done 
+          clustering techniques to group and identify data patterns.
         </p>
-        <!-- <div class="p-metrics">
-          <span class="m"><span class="n">85%</span> weekly active use</span>
-          <span class="m"><span class="n">-4hrs</span> manual reporting / week</span>
-        </div> -->
         <div class="p-tools mono">Pandas · Matplotlib · Numpy</div>
         <span class="p-link">See more →</span>
       </a>
@@ -129,16 +166,11 @@
           <span class="p-meta mono">Course Project</span>
         </div>
         <p class="p-desc">
-          Applied CRISP-DM methodology to structure the analysis, from business and data 
-          understanding, data cleaning, modelling and evaluation on a graph structured 
-          e-commerce data. Identified popular e-commerce item through network data 
-          analysis and identified co-puchasing pattern by performing graph embedding and 
-          community detection.
+          Built an e-commerce shopping recommendation model on a graph structured data. 
+          Applied CRISP-DM methodology starting from business understanding to deployment plan. 
+          Identified popular e-commerce item through network data analysis and identified 
+          co-puchasing pattern by performing graph embedding and community detection.
         </p>
-        <!-- <div class="p-metrics">
-          <span class="m"><span class="n">85%</span> weekly active use</span>
-          <span class="m"><span class="n">-4hrs</span> manual reporting / week</span>
-        </div> -->
         <div class="p-tools mono">Pandas · Matplotlib · Numpy</div>
         <span class="p-link">See more →</span>
       </a>
@@ -158,6 +190,32 @@
       </a>
     </div>
   </section>
+
+  <script>
+    (function(){
+      var carousel = document.getElementById('project-carousel');
+      var left = document.getElementById('arrow-left');
+      var right = document.getElementById('arrow-right');
+
+      function updateArrows(){
+        var maxScroll = carousel.scrollWidth - carousel.clientWidth;
+        left.classList.toggle('hidden', carousel.scrollLeft <= 4);
+        right.classList.toggle('hidden', carousel.scrollLeft >= maxScroll - 4);
+      }
+
+      function scrollByCard(direction){
+        var card = carousel.querySelector('.project');
+        var step = card ? card.offsetWidth + 16 : 320;
+        carousel.scrollBy({ left: direction * step, behavior: 'smooth' });
+      }
+
+      left.addEventListener('click', function(){ scrollByCard(-1); });
+      right.addEventListener('click', function(){ scrollByCard(1); });
+      carousel.addEventListener('scroll', updateArrows);
+      window.addEventListener('resize', updateArrows);
+      updateArrows();
+    })();
+  </script>
 
   <!-- EXPERIENCE -->
   <!-- <section id="experience">

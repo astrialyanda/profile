@@ -1,1 +1,83 @@
-<h1>Hello World!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graph Mining on Amazon Co-Purchasing Data - Alyanda Astri</title>
+<meta name="description" content="Course project: Graph Mining on Amazon Co-Purchasing Data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+ 
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="site">
+    <a class="brand" href="index.html" style="text-decoration:none; color:var(--ink);">Alyanda Astri</a>
+    <nav>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="personal.html">Blog</a>
+    </nav>
+    </header>
+
+    <div class="wrap">
+        <a class="back-link" href="index.html#work">← Back to all projects</a>
+ 
+        <div class="detail-head">
+            <span class="mono detail-meta">Course Project · 2026</span>
+            <h1>Graph Mining on Amazon Co-Purchasing Data</h1>
+        </div>
+        
+        <div class="screenshot-grid">
+            <img src="img/dm1.png" alt="DM Link prediction result">
+            <img src="img/dm2.png" alt="DM Deployment plan">
+        </div>
+        <p class="screenshot-caption">
+            Link Prediction result and deployment plan from the Graph Mining on Amazon Co-Purchasing Dataset.
+        </p>
+        
+        <div class="detail-body">
+        
+            <section>
+            <h2>What I did</h2>
+            <p>
+                This was a project from the Data Mining course. In this project, the main objective is
+                to implement the CRISP-DM methodology. With several existing groups in
+                the class, each were given different project, with different data mining technique applied.
+                For our team, we were given the Amazon Co-Purchasing data. It was a network dataset, with 
+                nodes and edges that represents relationship between items in the dataset. For it, we did
+                Graph Mining to find insights from the data.
+                <br></br>
+                Following the CRISP-DM methodology, in a team of 5, we begin by understanding the business
+                value of the data given, which is an Amazon co-purchasing dataset. Next we did data undersranding,
+                analyzing data characteristics. Then, we did data preparation and cleaning in Python. Before entering 
+                the modelling phase, we first analyzed the network structure of the graph dataset. Identifying a node's
+                popularity, which can be a useful business insight. Following the network structure analysis, we did 
+                the modelling for recommendations of co-purchasing patterns. We're using two approach, the community
+                detection and graph embedding. Then we evaluate the model result and drawn a conclusion.
+                <br></br>
+                This project's learning wasn't limited to coding techniques for data, but also extended to business 
+                analysis — understanding what the model's calculation results actually mean and connecting them back 
+                to business context.
+            </p>
+            <ul>
+                <li>Used CRISP-DM methodology</li>
+                <li>Python libraries/tools used: pandas, matplotlib, seaborn, numpy</li>
+                <li>Performed business and data understanding</li>
+            </ul>
+            </section>
+        
+            <div class="tools-row mono" style="margin-top:36px; padding-top:20px; border-top:1px solid var(--line); color:var(--ink-soft); font-size:0.9rem;">
+            Tools: Python pandas · matplotlib · seaborn · numpy
+            </div>
+        </div>
+        
+        </div>
+        
+        <footer style="text-align:center;">© 2026 Alyanda Astri</footer>
+ 
+    </div>
+</body>
